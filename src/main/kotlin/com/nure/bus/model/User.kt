@@ -1,10 +1,10 @@
 package com.nure.bus.model
 
+import org.neo4j.ogm.annotation.GraphId
 import java.time.LocalDate
-import javax.persistence.Id
 
 data class User(
-        @Id
+        @GraphId
         val id: Long,
         val firstName: String,
         val lastName: String,
