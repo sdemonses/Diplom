@@ -1,16 +1,17 @@
 package com.nure.bus.model
 
-import org.neo4j.ogm.annotation.GraphId
-import java.time.LocalDate
+import org.neo4j.ogm.annotation.GeneratedValue
+import org.neo4j.ogm.annotation.Id
+import java.util.*
 
 data class User(
-        @GraphId
-        val id: Long,
-        val firstName: String,
-        val lastName: String,
-        val primaryPhone: String,
-        val secondaryPhone: String,
-        val emailAddress: String,
-        val dateOfBirth: LocalDate
+        @Id @GeneratedValue
+        var id: Long? = null,
+        var firstName: String? = null,
+        var lastName: String? = null,
+        var primaryPhone: String? = null,
+        var secondaryPhone: String? = null,
+        var emailAddress: String? = null,
+        var dateOfBirth: Date? = null
 
 )

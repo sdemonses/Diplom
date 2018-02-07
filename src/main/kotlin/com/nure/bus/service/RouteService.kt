@@ -6,10 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
 @Service
-class RouteService(@Autowired
-                   var routeRepository: RouteRepository) {
+class RouteService @Autowired constructor(
+                   val routeRepository: RouteRepository) {
 
-    fun add(route:Route){
+    fun add(route: Route) {
         routeRepository.save(route)
     }
 }

@@ -1,9 +1,10 @@
 package com.nure.bus.model
 
-import org.neo4j.ogm.annotation.GraphId
+import org.neo4j.ogm.annotation.GeneratedValue
+import org.neo4j.ogm.annotation.Id
 
 data class Town(
-        @GraphId
-        val id: Long,
-        val title: String
+        @Id @GeneratedValue
+        var id: Long? = null,
+        var title: String? = null
 )

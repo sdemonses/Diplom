@@ -1,19 +1,21 @@
 package com.nure.bus.model
 
-import org.neo4j.ogm.annotation.GraphId
+import org.neo4j.ogm.annotation.GeneratedValue
+import org.neo4j.ogm.annotation.Id
 import org.neo4j.ogm.annotation.NodeEntity
 import org.neo4j.ogm.annotation.Relationship
+import org.springframework.data.neo4j.annotation.Depth
 
 @NodeEntity(label = "Station")
 data class Station(
-        @GraphId
-        val id: Long,
+        @Id @GeneratedValue
+        var id: Long? = null,
 
         @Relationship(type = "PLACED_IN", direction = Relationship.OUTGOING)
-        val town: Town,
-
+        var town: Town? = null,
+        @Depth
         @Relationship(type = "STATION_REL", direction = Relationship.UNDIRECTED)
-        val stations: Set<StationRel> = HashSet(),
-        val longitude: Double,
-        val latitude: Double
+        var stations: Set<StationRel>? = HashSet(),
+        var longitude: Double? = null,
+        var latitude: Double? = null
 )

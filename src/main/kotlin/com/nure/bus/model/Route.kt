@@ -1,17 +1,18 @@
 package com.nure.bus.model
 
-import org.neo4j.ogm.annotation.GraphId
+import org.neo4j.ogm.annotation.GeneratedValue
+import org.neo4j.ogm.annotation.Id
 import org.neo4j.ogm.annotation.Relationship
 
 data class Route(
-        @GraphId
-        val id: Long,
-        val title: String,
+        @Id @GeneratedValue
+        var id: Long? = null,
+        var title: String? = null,
         @Relationship(type = "LAST_STOP", direction = Relationship.OUTGOING)
-        val lastStop: Stop?,
+        var lastStop: Stop? = null,
         @Relationship(type = "START_FROM", direction = Relationship.OUTGOING)
-        val firstStop: Stop?,
+        var firstStop: Stop? = null,
         @Relationship(type = "CONTAINS", direction = Relationship.OUTGOING)
-        val stops: Set<Stop>?,
-        val bus: Bus?
+        var stops: Set<Stop>? = null,
+        var bus: Bus? = null
 )

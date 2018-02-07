@@ -1,12 +1,13 @@
 package com.nure.bus.model
 
-import org.neo4j.ogm.annotation.GraphId
+import org.neo4j.ogm.annotation.GeneratedValue
+import org.neo4j.ogm.annotation.Id
 
 data class Bus(
-        @GraphId
-        val id: Long,
-        val countPlace: Int,
-        val busMap: Int) {
+        @Id @GeneratedValue
+        var id: Long? = null,
+        var countPlace: Int? = null,
+        var busMap: Int ? = null){
     enum class BusType {
         COMFORT, ECO
     }

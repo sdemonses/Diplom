@@ -1,12 +1,13 @@
 package com.nure.bus.model
 
-import org.neo4j.ogm.annotation.GraphId
-import java.time.LocalDateTime
+import org.neo4j.ogm.annotation.GeneratedValue
+import org.neo4j.ogm.annotation.Id
+import java.util.*
 
 data class Stop(
-        @GraphId
-        val id: Long,
-        val station: Station,
-        val nexStop: Stop,
-        val arriveTime: LocalDateTime,
-        val departureTime: LocalDateTime)
+        @Id @GeneratedValue
+        var id: Long? = null,
+        var station: Station? = null,
+        var nexStop: Stop? = null,
+        var arriveTime: Date? = null,
+        var departureTime: Date? = null)
